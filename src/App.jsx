@@ -48,16 +48,16 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Header
-        // toggleNFTModal={this.toggleNFTModal}
-        // nftModal={this.state.nftModal}
-        // {...this.props}
-        // socket={socket}
-        // props={this.props}
-        // logUserOut={this.logUserOut}
-        // setCurrentUser={this.setCurrentUser}
-        // loggedIn={this.state.loggedIn}
-        />
+        {/* <Header
+        toggleNFTModal={this.toggleNFTModal}
+        nftModal={this.state.nftModal}
+        {...this.props}
+        socket={socket}
+        props={this.props}
+        logUserOut={this.logUserOut}
+        setCurrentUser={this.setCurrentUser}
+        loggedIn={this.state.loggedIn}
+        /> */}
         <Routes>
           <Route
             path='/'

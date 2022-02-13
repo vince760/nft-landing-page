@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import store from "../redux/store";
 import { LOGIN_USER } from "../redux/constants/action-types";
 import { useNavigate } from "react-router-dom";
-
+import logo from '../images/logo-removebg-preview.png'
 const Header = (props) => {
   const [initialState, setInitialState] = useState({
     loginModal: false,
@@ -108,9 +108,8 @@ const Header = (props) => {
 
   return (
     <div id='header'>
-      <Link to='/' id='logo'>
-        NFT Galleria
-      </Link>
+      <img src={logo}/>
+      
       <Modal
         className='modal-content rounded-17 shadow'
         isOpen={initialState.loginModal}
@@ -135,23 +134,7 @@ const Header = (props) => {
           <a>Dark NFTs</a>
           <a>Community</a>
           <a>Craft NFT</a> */}
-        {props.loggedIn === true ? (
-          <div>
-            <button onClick={() => createNewNFT()} id='create'>
-              Create NFT
-            </button>
-            <button onClick={() => viewMyNFT()} id='create'>
-              My NFT's
-            </button>
-            <button to='/' id='connect-wallet' onClick={() => userLogOut()}>
-              Log Out
-            </button>
-          </div>
-        ) : (
-          <button id='connect-wallet' onClick={() => handleWallet()}>
-            Connect Wallet
-          </button>
-        )}
+        
       </div>
     </div>
   );
