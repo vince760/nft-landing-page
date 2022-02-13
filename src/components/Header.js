@@ -16,46 +16,46 @@ const Header = (props) => {
   });
   let navigate = useNavigate();
 
-  useEffect(() => {
-    nodeService
-      .getMintingFee()
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    props.socket.on("xumm-signin", (response) => {
-      console.log("XUMM SIGN IN RESPONSE", response);
-      if (response.response.userToken.user_token) {
-        window.localStorage.setItem(
-          "user_token",
-          response.response.userToken.user_token
-        );
-        window.localStorage.setItem("user_wallet", response.wallet);
-        store.dispatch({
-          type: LOGIN_USER,
-          payload: {
-            user_token: response.response.userToken.user_token,
-            wallet_address: response.wallet,
-          },
-        });
-        if (props.loggedIn === false) {
-          props.setCurrentUser(response.response.userToken.user_token);
-        }
+  // useEffect(() => {
+  //   nodeService
+  //     .getMintingFee()
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  //   props.socket.on("xumm-signin", (response) => {
+  //     console.log("XUMM SIGN IN RESPONSE", response);
+  //     if (response.response.userToken.user_token) {
+  //       window.localStorage.setItem(
+  //         "user_token",
+  //         response.response.userToken.user_token
+  //       );
+  //       window.localStorage.setItem("user_wallet", response.wallet);
+  //       store.dispatch({
+  //         type: LOGIN_USER,
+  //         payload: {
+  //           user_token: response.response.userToken.user_token,
+  //           wallet_address: response.wallet,
+  //         },
+  //       });
+  //       if (props.loggedIn === false) {
+  //         props.setCurrentUser(response.response.userToken.user_token);
+  //       }
 
-        // this.setState({ loginModal: false, loggedIn: true });
-        setInitialState({ ...initialState, loginModal: false, loggedIn: true });
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Logged In!",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    });
-  }, []);
+  //       // this.setState({ loginModal: false, loggedIn: true });
+  //       setInitialState({ ...initialState, loginModal: false, loggedIn: true });
+  //       Swal.fire({
+  //         position: "top-end",
+  //         icon: "success",
+  //         title: "Logged In!",
+  //         showConfirmButton: false,
+  //         timer: 1500,
+  //       });
+  //     }
+  //   });
+  // }, []);
 
   const viewMyNFT = () => {
     navigate("/collection");

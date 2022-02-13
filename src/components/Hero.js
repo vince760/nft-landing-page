@@ -41,12 +41,12 @@ const Hero = (props) => {
   const [numPages, setNumPages] = useState(null);
   let navigate = useNavigate();
 
-  useEffect(() => {
-    props.socket.on("xumm-nftMint", (response) => {
-      console.log("XUMM NFT MINT RESPONSE", response);
-      setSubmitting(false);
-    });
-  }, []);
+  // useEffect(() => {
+  //   props.socket.on("xumm-nftMint", (response) => {
+  //     console.log("XUMM NFT MINT RESPONSE", response);
+  //     setSubmitting(false);
+  //   });
+  // }, []);
 
   const goExplore = () => {
     navigate("/explore");
@@ -126,7 +126,7 @@ const Hero = (props) => {
       return (
         <img
           style={{ height: "40%", width: "40%" }}
-          className="text-center"
+          className='text-center'
           src={uploadPreview.src}
         />
       );
@@ -144,10 +144,10 @@ const Hero = (props) => {
     } else {
       return (
         <GLTFModel
-          width="1106"
-          height="250"
+          width='1106'
+          height='250'
           position={{ x: 0.2, y: -0.07, z: 0.3 }}
-          className="text-center"
+          className='text-center'
           src={uploadPreview.src}
         >
           <AmbientLight color={0xffffff} />
@@ -170,8 +170,8 @@ const Hero = (props) => {
   };
 
   return (
-    <div id="hero">
-      <Modal centered={true} size="xl" isOpen={props.nftModal}>
+    <div id='hero'>
+      <Modal centered={true} size='xl' isOpen={props.nftModal}>
         <ModalHeader
           cssModule={{ "modal-title": "w-100 text-center" }}
           style={{
@@ -183,11 +183,11 @@ const Hero = (props) => {
           Create New NFT
         </ModalHeader>
         {isSubmitting ? (
-          <div className="d-flex justify-content-center">
+          <div className='d-flex justify-content-center'>
             <SpinnerDotted size={250} enabled={isSubmitting} />
           </div>
         ) : (
-          <ModalBody className="text-center">
+          <ModalBody className='text-center'>
             <Formik
               initialValues={nftSchema.nftInitialValues}
               validationSchema={nftSchema.createNftSchema}
@@ -203,31 +203,31 @@ const Hero = (props) => {
                 /* and other goodies */
               }) => (
                 <Form>
-                  <div className="text-center mb-3">
+                  <div className='text-center mb-3'>
                     {uploadPreview.src !== "" ? (
-                      <div className="col-12">{returnFilePreview()}</div>
+                      <div className='col-12'>{returnFilePreview()}</div>
                     ) : null}
                     <br />
                     <input
-                      type="file"
-                      accept="*"
-                      placeholder="Upload"
+                      type='file'
+                      accept='*'
+                      placeholder='Upload'
                       onChange={fileUpload}
                     ></input>
                   </div>
 
-                  <div className="pb-3">
+                  <div className='pb-3'>
                     <Field
-                      name="title"
-                      className="form-control"
-                      type="title"
-                      placeholder="Title"
+                      name='title'
+                      className='form-control'
+                      type='title'
+                      placeholder='Title'
                       value={values.title}
-                      aria-label="Title"
-                      autoComplete="off"
-                      autoCorrect="off"
-                      autoCapitalize="off"
-                      spellCheck="false"
+                      aria-label='Title'
+                      autoComplete='off'
+                      autoCorrect='off'
+                      autoCapitalize='off'
+                      spellCheck='false'
                       onBlur={(e) =>
                         setValue({ ...stateValue, title: e.target.value })
                       }
@@ -238,18 +238,18 @@ const Hero = (props) => {
                       <div style={{ color: "red" }}>{errors.title}</div>
                     ) : null}
                   </div>
-                  <div className="pb-3">
+                  <div className='pb-3'>
                     <Field
-                      name="desc"
-                      className="form-control 1"
-                      component="textarea"
-                      placeholder="Description"
+                      name='desc'
+                      className='form-control 1'
+                      component='textarea'
+                      placeholder='Description'
                       value={values.desc}
-                      aria-label="Description"
-                      autoComplete="off"
-                      autoCorrect="off"
-                      autoCapitalize="off"
-                      spellCheck="false"
+                      aria-label='Description'
+                      autoComplete='off'
+                      autoCorrect='off'
+                      autoCapitalize='off'
+                      spellCheck='false'
                       onBlur={(e) =>
                         setValue({ ...stateValue, desc: e.target.value })
                       }
@@ -258,17 +258,17 @@ const Hero = (props) => {
                       <div style={{ color: "red" }}>{errors.desc}</div>
                     ) : null}
                   </div>
-                  <div className="col-12 row">
-                    <div className="col-6">
+                  <div className='col-12 row'>
+                    <div className='col-6'>
                       <div style={styles}>
                         <label>Offer NFT for Sale?</label>{" "}
                         <Field
                           checked={values.forSale}
-                          name="forSale"
-                          type="checkbox"
-                          placeholder="Offer For Sale?"
+                          name='forSale'
+                          type='checkbox'
+                          placeholder='Offer For Sale?'
                           value={values.forSale}
-                          aria-label="Offer For Sale?"
+                          aria-label='Offer For Sale?'
                           onClick={() =>
                             setValue({
                               ...stateValue,
@@ -281,12 +281,12 @@ const Hero = (props) => {
                         <label>Do you have downloadable content?</label>{" "}
                         <Field
                           checked={values.downloadable}
-                          name="downloadable"
+                          name='downloadable'
                           // className="form-control 1"
-                          type="checkbox"
-                          placeholder="Downloadble?"
+                          type='checkbox'
+                          placeholder='Downloadble?'
                           value={values.downloadable}
-                          aria-label="Downloadble?"
+                          aria-label='Downloadble?'
                           onClick={() =>
                             setValue({
                               ...stateValue,
@@ -300,12 +300,12 @@ const Hero = (props) => {
                         <label>Sell directly?</label>{" "}
                         <Field
                           checked={values.sellDirect}
-                          name="directSell"
+                          name='directSell'
                           // className="form-control 1"
-                          type="checkbox"
-                          placeholder="DirectSell?"
+                          type='checkbox'
+                          placeholder='DirectSell?'
                           value={values.sellDirect}
-                          aria-label="DirectSerll?"
+                          aria-label='DirectSerll?'
                           onClick={() =>
                             setValue({
                               ...stateValue,
@@ -315,19 +315,19 @@ const Hero = (props) => {
                         />
                       </div>
                     </div>
-                    <div className="col-6">
-                      <div className="pb-3">
+                    <div className='col-6'>
+                      <div className='pb-3'>
                         <Field
-                          name="price"
-                          className="form-control"
-                          type="price"
-                          placeholder="Price in XRP"
+                          name='price'
+                          className='form-control'
+                          type='price'
+                          placeholder='Price in XRP'
                           value={values.price}
-                          aria-label="Price"
-                          autoComplete="off"
-                          autoCorrect="off"
-                          autoCapitalize="off"
-                          spellCheck="false"
+                          aria-label='Price'
+                          autoComplete='off'
+                          autoCorrect='off'
+                          autoCapitalize='off'
+                          spellCheck='false'
                           onBlur={(e) =>
                             setValue({
                               ...stateValue,
@@ -342,18 +342,18 @@ const Hero = (props) => {
                         ) : null}
                       </div>
                       {stateValue.downloadableContent ? (
-                        <div className="pb-3">
+                        <div className='pb-3'>
                           <Field
-                            name="downloadContent"
-                            className="form-control"
-                            type="text"
-                            placeholder="Link to your downloadable content"
+                            name='downloadContent'
+                            className='form-control'
+                            type='text'
+                            placeholder='Link to your downloadable content'
                             value={values.title}
-                            aria-label="downloadContent"
-                            autoComplete="off"
-                            autoCorrect="off"
-                            autoCapitalize="off"
-                            spellCheck="false"
+                            aria-label='downloadContent'
+                            autoComplete='off'
+                            autoCorrect='off'
+                            autoCapitalize='off'
+                            spellCheck='false'
                             onBlur={(e) =>
                               setValue({
                                 ...stateValue,
@@ -369,18 +369,18 @@ const Hero = (props) => {
                       ) : null}
                     </div>
                     {stateValue.directSell ? (
-                      <div className="pb-3">
+                      <div className='pb-3'>
                         <Field
-                          name="receiverAddress"
-                          className="form-control"
-                          type="text"
-                          placeholder="Recieving user wallet address"
+                          name='receiverAddress'
+                          className='form-control'
+                          type='text'
+                          placeholder='Recieving user wallet address'
                           value={values.receiverAddress}
-                          aria-label="receiverAddress"
-                          autoComplete="off"
-                          autoCorrect="off"
-                          autoCapitalize="off"
-                          spellCheck="false"
+                          aria-label='receiverAddress'
+                          autoComplete='off'
+                          autoCorrect='off'
+                          autoCapitalize='off'
+                          spellCheck='false'
                           onBlur={(e) =>
                             setValue({
                               ...stateValue,
@@ -402,13 +402,13 @@ const Hero = (props) => {
         )}
 
         <ModalFooter>
-          <Button onClick={props.toggleNFTModal} className="btn btn-warning">
+          <Button onClick={props.toggleNFTModal} className='btn btn-warning'>
             Cancel
           </Button>
           <Button
             disabled={isSubmitting}
             onClick={submitNFT}
-            className="btn btn-success"
+            className='btn btn-success'
           >
             Create NFT
           </Button>
@@ -423,14 +423,14 @@ const Hero = (props) => {
         socket={props.socket}
       /> */}
 
-      <h1 id="header-text-first"> NFT </h1>
-      <h1 id="header-text-second"> Galleria</h1>
-      <h5 id="header-subtext">Minting on demand!</h5>
+      <h1 id='header-text-first'> NFT </h1>
+      <h1 id='header-text-second'> Galleria</h1>
+      <h5 id='header-subtext'>Minting on demand!</h5>
 
-      <div id="hero-buttons">
-        <button id="explore" onClick={goExplore}>
+      <div id='hero-buttons'>
+        {/* <button id="explore" onClick={goExplore}>
           Explore
-        </button>
+        </button> */}
         {/* <button id="create">Create</button> */}
       </div>
     </div>
